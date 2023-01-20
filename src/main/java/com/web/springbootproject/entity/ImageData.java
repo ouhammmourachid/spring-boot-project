@@ -27,7 +27,7 @@ public class ImageData {
     @Lob
     @Column(
             name = "imageData",
-            length = 1000
+            length = 100_000_000
     )
     private byte[] imageData;
 }
