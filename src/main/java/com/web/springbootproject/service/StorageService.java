@@ -19,7 +19,7 @@ public class StorageService {
         this.storageRepository = storageRepository;
     }
 
-    public String uploadImage(MultipartFile file) throws IOException {
+    public String uploadFile(MultipartFile file) throws IOException {
         FileData imageData = storageRepository.save(
                 FileData.builder()
                         .name(file.getOriginalFilename())
@@ -32,7 +32,7 @@ public class StorageService {
         }
         return null;
     }
-    public byte[] downloadImage(String fileName){
+    public byte[] downloadFile(String fileName){
         Optional<FileData> imageData = storageRepository.findByName(fileName);
         byte[] file = FileUtils.decompressImage(imageData.get().getFileData());
         return file;
