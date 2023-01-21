@@ -11,7 +11,7 @@ import com.web.springbootproject.service.StorageService;
 import java.io.IOException;
 
 @RestController
-@RequestMapping(path = "/api/v1/image")
+@RequestMapping(path = "/api/v1/document")
 public class DocumentController {
     @Autowired
     private final StorageService storageService;
