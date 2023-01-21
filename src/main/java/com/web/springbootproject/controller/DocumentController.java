@@ -11,26 +11,26 @@ import com.web.springbootproject.service.StorageService;
 import java.io.IOException;
 
 @RestController
-@RequestMapping(path = "/api/v1/image")
-public class ImageController {
+@RequestMapping(path = "/api/v1/document")
+public class DocumentController {
     @Autowired
     private final StorageService storageService;
 
-    public ImageController(StorageService storageService) {
+    public DocumentController(StorageService storageService) {
         this.storageService = storageService;
     }
     @PostMapping
-    public ResponseEntity<?> uploadImage(@RequestParam("image")MultipartFile image) throws IOException {
-        String uploadImage = storageService.uploadFile(image);
+    public ResponseEntity<?> uploadDocument(@RequestParam("file")MultipartFile pdfFile) throws IOException {
+        String uploadDocument = storageService.uploadFile(pdfFile);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(uploadImage);
+                .body(uploadDocument);
     }
 
     @GetMapping(path = "{fileName}")
-    public ResponseEntity<?> downloadImage(@PathVariable String fileName){
-        byte[] image = storageService.downloadFile(fileName);
+    public ResponseEntity<?> downloadDocument(@PathVariable String fileName){
+        byte[] file = storageService.downloadFile(fileName);
         return ResponseEntity.status(HttpStatus.OK)
-                .contentType(MediaType.valueOf("image/png"))
-                .body(image);
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(file);
     }
 }

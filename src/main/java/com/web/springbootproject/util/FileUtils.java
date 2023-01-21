@@ -4,13 +4,13 @@ import java.io.ByteArrayOutputStream;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
-public class ImageUtils {
-    public static byte[] compressImage(byte[] image){
+public class FileUtils {
+    public static byte[] compressImage(byte[] file){
         Deflater deflater = new Deflater();
         deflater.setLevel(Deflater.BEST_COMPRESSION);
-        deflater.setInput(image);
+        deflater.setInput(file);
         deflater.finish();
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(image.length);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(file.length);
         byte[] tmp = new byte[4*1024];
         while (!deflater.finished()){
             int size = deflater.deflate(tmp);
@@ -24,10 +24,10 @@ public class ImageUtils {
         return  outputStream.toByteArray();
     }
 
-    public static byte[] decompressImage(byte[] imageCompressed){
+    public static byte[] decompressImage(byte[] fileCompressed){
         Inflater inflater = new Inflater();
-        inflater.setInput(imageCompressed);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(imageCompressed.length);
+        inflater.setInput(fileCompressed);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(fileCompressed.length);
         byte[] tmp = new byte[4*1024];
 
         try {

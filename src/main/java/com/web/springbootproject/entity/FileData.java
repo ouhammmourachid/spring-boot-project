@@ -8,26 +8,26 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@Entity(name="imageData")
+@Entity(name="fileData")
 @Table
-public class ImageData {
+public class FileData {
     @Id
     @SequenceGenerator(
-            name = "image_sequence",
-            sequenceName = "image_name",
+            name = "file_sequence",
+            sequenceName = "file_name",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "image_sequence"
+            generator = "file_sequence"
     )
     private Long id;
     private String name;
     private String type;
     @Lob
     @Column(
-            name = "imageData",
+            name = "fileData",
             length = 100_000_000
     )
-    private byte[] imageData;
+    private byte[] fileData;
 }
