@@ -14,7 +14,7 @@ public class FileData {
     @Id
     @SequenceGenerator(
             name = "file_sequence",
-            sequenceName = "file_name",
+            sequenceName = "file_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
