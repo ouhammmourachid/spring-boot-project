@@ -1,6 +1,6 @@
 package com.web.springbootproject.repository;
 
-import com.web.springbootproject.entity.FileData;
+import com.web.springbootproject.entity.util.FileData;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

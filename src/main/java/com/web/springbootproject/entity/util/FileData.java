@@ -1,4 +1,4 @@
-package com.web.springbootproject.entity;
+package com.web.springbootproject.entity.util;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,19 +8,11 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@Entity(name="fileData")
-@Table
+@Entity
+@Table(name="fileData")
 public class FileData {
     @Id
-    @SequenceGenerator(
-            name = "file_sequence",
-            sequenceName = "file_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "file_sequence"
-    )
+    @GeneratedValue
     private Long id;
     private String name;
     private String type;
