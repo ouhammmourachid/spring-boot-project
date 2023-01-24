@@ -44,7 +44,7 @@ public class User {
             name = "file_id",
             referencedColumnName = "id",
             foreignKey = @ForeignKey(
-                    name = "file_id_fk"
+                    name = "file_user_id_fk"
             )
     )
     private File image;

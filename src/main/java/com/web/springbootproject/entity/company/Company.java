@@ -34,7 +34,7 @@ public class Company {
             name = "user_id",
             referencedColumnName = "id",
             foreignKey = @ForeignKey(
-                    name = "user_id_fk"
+                    name = "user_company_id_fk"
             )
     )
     private User user;

@@ -46,7 +46,7 @@ public class Profile {
             name = "file_id",
             referencedColumnName = "id",
             foreignKey = @ForeignKey(
-                    name = "file_id_fk"
+                    name = "file_profile_id_fk"
             )
     )
     private File file;
@@ -55,7 +55,7 @@ public class Profile {
             name = "user_id",
             referencedColumnName = "id",
             foreignKey = @ForeignKey(
-                    name = "user_id_fk"
+                    name = "user_profile_id_fk"
             )
     )
     private User user;
