@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,7 +41,24 @@ public class Company {
             )
     )
     private User user;
+    @OneToMany(
+            mappedBy = "company",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Job> jobs = new ArrayList<>();
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "company"
+    )
+    private List<Review> reviews = new ArrayList<>();
 
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "company"
+    )
+    private List<Message> messages = new ArrayList<>();
     public Company(String name,
                    String language,
                    String country,

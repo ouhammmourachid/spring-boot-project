@@ -1,8 +1,9 @@
 package com.web.springbootproject.entity.util;
 
-import com.web.springbootproject.entity.employee.Profile;
-import com.web.springbootproject.entity.user.User;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,8 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
-@Table(name = "file")
+@MappedSuperclass
 public class File {
     @Id
     @GeneratedValue
@@ -22,20 +22,6 @@ public class File {
     private String name;
     @Column(nullable = false)
     private String type;
-    @OneToOne(
-            mappedBy = "file",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
-
-    )
-    private Profile profile;
-    @OneToOne(
-            mappedBy = "image",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
-
-    )
-    private User user;
     public File(String name, String type) {
         this.name = name;
         this.type = type;

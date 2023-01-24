@@ -2,7 +2,7 @@ package com.web.springbootproject.entity.user;
 
 import com.web.springbootproject.entity.company.Company;
 import com.web.springbootproject.entity.employee.Profile;
-import com.web.springbootproject.entity.util.File;
+import com.web.springbootproject.entity.util.Image;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,13 +41,13 @@ public class User {
     private Company company;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "file_id",
+            name = "image_id",
             referencedColumnName = "id",
             foreignKey = @ForeignKey(
-                    name = "file_user_id_fk"
+                    name = "image-user_id_fk"
             )
     )
-    private File image;
+    private Image image;
 
     public User(String email, String userName, String password) {
         this.email = email;

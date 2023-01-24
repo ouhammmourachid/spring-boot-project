@@ -1,7 +1,10 @@
 package com.web.springbootproject.entity.employee;
 
+import com.web.springbootproject.entity.company.Application;
+import com.web.springbootproject.entity.company.Message;
+import com.web.springbootproject.entity.company.Review;
 import com.web.springbootproject.entity.user.User;
-import com.web.springbootproject.entity.util.File;
+import com.web.springbootproject.entity.util.Document;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,13 +46,13 @@ public class Profile {
     private Integer age;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "file_id",
+            name = "document_id",
             referencedColumnName = "id",
             foreignKey = @ForeignKey(
-                    name = "file_profile_id_fk"
+                    name = "document_profile_id_fk"
             )
     )
-    private File file;
+    private Document file;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "user_id",
@@ -94,6 +97,21 @@ public class Profile {
             fetch = FetchType.LAZY
     )
     private List<Language> languages = new ArrayList<>();
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "profile"
+    )
+    private List<Application> applications = new ArrayList<>();
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "profile"
+    )
+    private List<Review> reviews = new ArrayList<>();
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            mappedBy = "profile"
+    )
+    private List<Message> messages = new ArrayList<>();
     public Profile(String firstName,
                    String lastName,
                    String headLine,
