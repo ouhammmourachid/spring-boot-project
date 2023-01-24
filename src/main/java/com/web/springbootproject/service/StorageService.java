@@ -32,8 +32,8 @@ public class StorageService {
         }
         return null;
     }
-    public byte[] downloadFile(String fileName){
-        Optional<FileData> imageData = storageRepository.findByName(fileName);
+    public byte[] downloadFile(Long id){
+        Optional<FileData> imageData = storageRepository.findById(id);
         byte[] file = FileUtils.decompressImage(imageData.get().getFileData());
         return file;
     }

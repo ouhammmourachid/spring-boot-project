@@ -26,9 +26,9 @@ public class DocumentController {
                 .body(uploadDocument);
     }
 
-    @GetMapping(path = "{fileName}")
-    public ResponseEntity<?> downloadDocument(@PathVariable String fileName){
-        byte[] file = storageService.downloadFile(fileName);
+    @GetMapping(path = "{id}")
+    public ResponseEntity<?> downloadDocument(@PathVariable Long id){
+        byte[] file = storageService.downloadFile(id);
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_PDF)
                 .body(file);
