@@ -18,7 +18,16 @@ public class Language {
     private String name;
     @Column(nullable = false)
     private String level;
-
+    @ManyToOne
+    @JoinColumn(
+            name = "profile_id",
+            nullable = false,
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "profile_language_fk"
+            )
+    )
+    private Profile profile;
     public Language(String name, String level) {
         this.name = name;
         this.level = level;

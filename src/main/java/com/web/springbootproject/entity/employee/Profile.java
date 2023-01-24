@@ -1,5 +1,7 @@
 package com.web.springbootproject.entity.employee;
 
+import com.web.springbootproject.entity.user.User;
+import com.web.springbootproject.entity.util.File;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -37,7 +41,59 @@ public class Profile {
     private LocalDate dob;
     @Transient
     private Integer age;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "file_id",
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "file_id_fk"
+            )
+    )
+    private File file;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "user_id_fk"
+            )
+    )
+    private User user;
+    @OneToMany(
+            mappedBy = "profile",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Education> educations = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "profile",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Certificate> certificates = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "profile",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Skills> skills = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "profile",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<License> licenses = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "profile",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Language> languages = new ArrayList<>();
     public Profile(String firstName,
                    String lastName,
                    String headLine,

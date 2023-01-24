@@ -1,5 +1,6 @@
 package com.web.springbootproject.entity.company;
 
+import com.web.springbootproject.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +29,15 @@ public class Company {
     private String description;
     @Column(nullable = false)
     private String phoneNumber;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "user_id_fk"
+            )
+    )
+    private User user;
 
     public Company(String name,
                    String language,

@@ -18,7 +18,16 @@ public class Skills{
     private String label;
     @Column(nullable = false)
     private String since;
-
+    @ManyToOne
+    @JoinColumn(
+            name = "profile_id",
+            nullable = false,
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "profile_skills_fk"
+            )
+    )
+    private Profile profile;
     public Skills(String label, String since) {
         this.label = label;
         this.since = since;
