@@ -1,7 +1,7 @@
 package com.web.springbootproject.service;
 
-import com.web.springbootproject.repository.StorageRepository;
-import com.web.springbootproject.entity.FileData;
+import com.web.springbootproject.repository.util.StorageRepository;
+import com.web.springbootproject.entity.util.FileData;
 import com.web.springbootproject.util.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,8 +32,8 @@ public class StorageService {
         }
         return null;
     }
-    public byte[] downloadFile(String fileName){
-        Optional<FileData> imageData = storageRepository.findByName(fileName);
+    public byte[] downloadFile(Long id){
+        Optional<FileData> imageData = storageRepository.findById(id);
         byte[] file = FileUtils.decompressImage(imageData.get().getFileData());
         return file;
     }
