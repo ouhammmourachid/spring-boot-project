@@ -20,22 +20,5 @@ public class Message {
     @Column(nullable = false)
     private String message;
     private LocalDate createdDate;
-    @ManyToOne
-    @MapsId("companyId")
-    @JoinColumn(
-            name = "company_id",
-            foreignKey = @ForeignKey(
-                    name = "message_company_id_fk"
-            )
-    )
-    private Company company;
-    @ManyToOne
-    @MapsId("profileId")
-    @JoinColumn(
-            name = "profile_id",
-            foreignKey = @ForeignKey(
-                    name = "message_profile_id_fk"
-            )
-    )
-    private Profile profile;
+
 }

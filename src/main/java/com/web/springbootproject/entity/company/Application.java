@@ -20,22 +20,5 @@ public class Application {
     private ApplicationId id;
     private String status;
     private LocalDate applyDate;
-    @ManyToOne
-    @MapsId("jobId")
-    @JoinColumn(
-            name = "job_id",
-            foreignKey = @ForeignKey(
-                    name = "application_job_id_fk"
-            )
-    )
-    private Job job;
-    @ManyToOne
-    @MapsId("profileId")
-    @JoinColumn(
-            name = "profile_id",
-            foreignKey = @ForeignKey(
-                    name = "application_profile_id_fk"
-            )
-    )
-    private Profile profile;
+
 }

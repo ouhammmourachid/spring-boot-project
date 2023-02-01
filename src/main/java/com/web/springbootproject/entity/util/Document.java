@@ -1,25 +1,36 @@
 package com.web.springbootproject.entity.util;
 
-import com.web.springbootproject.entity.company.Job;
-import com.web.springbootproject.entity.employee.Profile;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.web.springbootproject.entity.user.User;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Document extends File{
-    @OneToOne(
-            mappedBy = "file",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Document {
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column(nullable = false)
+    private String name;
+    @Column(nullable = false)
+    private String type;
+    @Column(nullable = false)
+    private Long fileDataId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "user_document_id_fk"
+            )
     )
-    private Profile profile;
-    @OneToOne(
-            mappedBy = "file",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
-
-    )
-    private Job job;
-
+    @JsonBackReference
+    private User user;
 }

@@ -1,10 +1,7 @@
 package com.web.springbootproject.entity.employee;
 
-import com.web.springbootproject.entity.company.Application;
-import com.web.springbootproject.entity.company.Message;
-import com.web.springbootproject.entity.company.Review;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.web.springbootproject.entity.user.User;
-import com.web.springbootproject.entity.util.Document;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -44,15 +40,21 @@ public class Profile {
     private LocalDate dob;
     @Transient
     private Integer age;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(
-            name = "document_id",
-            referencedColumnName = "id",
-            foreignKey = @ForeignKey(
-                    name = "document_profile_id_fk"
-            )
-    )
-    private Document file;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_certificate_fk",referencedColumnName = "id")
+    private List<Certificate> certificates;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_education_fk",referencedColumnName = "id")
+    private List<Education> educations ;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_language_fk",referencedColumnName = "id")
+    private List<Language> languages;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_license_fk",referencedColumnName = "id")
+    private List<License> licenses;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_skills_fk",referencedColumnName = "id")
+    private List<Skills> skills;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "user_id",
@@ -61,57 +63,9 @@ public class Profile {
                     name = "user_profile_id_fk"
             )
     )
+    @JsonBackReference
     private User user;
-    @OneToMany(
-            mappedBy = "profile",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
-    )
-    private List<Education> educations = new ArrayList<>();
-    @OneToMany(
-            mappedBy = "profile",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
-    )
-    private List<Certificate> certificates = new ArrayList<>();
-    @OneToMany(
-            mappedBy = "profile",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
-    )
-    private List<Skills> skills = new ArrayList<>();
-    @OneToMany(
-            mappedBy = "profile",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
-    )
-    private List<License> licenses = new ArrayList<>();
-    @OneToMany(
-            mappedBy = "profile",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
-    )
-    private List<Language> languages = new ArrayList<>();
-    @OneToMany(
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            mappedBy = "profile"
-    )
-    private List<Application> applications = new ArrayList<>();
-    @OneToMany(
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            mappedBy = "profile"
-    )
-    private List<Review> reviews = new ArrayList<>();
-    @OneToMany(
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            mappedBy = "profile"
-    )
-    private List<Message> messages = new ArrayList<>();
+
     public Profile(String firstName,
                    String lastName,
                    String headLine,

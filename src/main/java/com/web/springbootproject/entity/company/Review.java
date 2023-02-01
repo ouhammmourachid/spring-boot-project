@@ -22,23 +22,5 @@ public class Review {
     @Column(nullable = false)
     private String comment;
     private LocalDate createDate;
-    @ManyToOne
-    @MapsId("companyId")
-    @JoinColumn(
-            name = "company_id",
-            foreignKey = @ForeignKey(
-                    name = "review_company_id_fk"
-            )
-    )
-    private Company company;
-    @ManyToOne
-    @MapsId("profileId")
-    @JoinColumn(
-            name = "profile_id",
-            foreignKey = @ForeignKey(
-                    name = "review_profile_id_fk"
-            )
-    )
-    private Profile profile;
 
 }

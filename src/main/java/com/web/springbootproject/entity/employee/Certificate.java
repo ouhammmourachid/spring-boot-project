@@ -21,16 +21,6 @@ public class Certificate {
     private LocalDate expirationDate;
     @Column(nullable = false)
     private boolean dontExpire;
-    @ManyToOne
-    @JoinColumn(
-            name = "profile_id",
-            nullable = false,
-            referencedColumnName = "id",
-            foreignKey = @ForeignKey(
-                    name = "profile_certificate_fk"
-            )
-    )
-    private Profile profile;
     public Certificate(String label,
                        LocalDate expirationDate,
                        boolean dontExpire) {
