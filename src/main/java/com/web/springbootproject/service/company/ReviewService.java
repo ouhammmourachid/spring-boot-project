@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -35,6 +36,7 @@ public class ReviewService {
         User user = userRepository.findById(userId)
                 .orElseThrow(()->new ResourceNotFoundException("user with id [%s] not found.".formatted(userId)));
         review.setUser(user);
+        review.setCreateDate(LocalDate.now());
         review.setCompany(company);
         return reviewRepository.save(review);
     }
