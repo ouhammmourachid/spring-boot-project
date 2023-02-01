@@ -2,18 +2,16 @@ package com.web.springbootproject.entity.company;
 
 import com.web.springbootproject.entity.company.embadded.ApplicationId;
 import com.web.springbootproject.entity.employee.Profile;
+import com.web.springbootproject.entity.user.User;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "application")
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Application {
 
     @EmbeddedId
@@ -30,12 +28,12 @@ public class Application {
     )
     private Job job;
     @ManyToOne
-    @MapsId("profileId")
+    @MapsId("userId")
     @JoinColumn(
-            name = "profile_id",
+            name = "user_id",
             foreignKey = @ForeignKey(
-                    name = "application_profile_id_fk"
+                    name = "application_user_id_fk"
             )
     )
-    private Profile profile;
+    private User user;
 }

@@ -13,8 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Embeddable
 public class ApplicationId implements Serializable {
-    @Column(name = "profile_id")
-    private Long profileId;
+    @Column(name = "user_id")
+    private Long userId;
     @Column(name = "job_id")
     private Long jobId;
 }

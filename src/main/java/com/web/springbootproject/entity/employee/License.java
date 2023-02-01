@@ -21,16 +21,6 @@ public class License {
     private LocalDate expirationDate;
     @Column(nullable = false)
     private boolean dontExpire;
-    @ManyToOne
-    @JoinColumn(
-            name = "profile_id",
-            nullable = false,
-            referencedColumnName = "id",
-            foreignKey = @ForeignKey(
-                    name = "profile_license_fk"
-            )
-    )
-    private Profile profile;
     public License(String label,
                    LocalDate expirationDate,
                    boolean dontExpire) {

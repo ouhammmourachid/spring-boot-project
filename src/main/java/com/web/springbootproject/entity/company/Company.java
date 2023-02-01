@@ -1,12 +1,13 @@
 package com.web.springbootproject.entity.company;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.web.springbootproject.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -32,33 +33,23 @@ public class Company {
     private String description;
     @Column(nullable = false)
     private String phoneNumber;
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "company_job_fk",referencedColumnName = "id")
+    @JsonManagedReference
+    private List<Job> jobs;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "user_id",
             referencedColumnName = "id",
             foreignKey = @ForeignKey(
-                    name = "user_company_id_fk"
+                    name = "user_profile_id_fk"
             )
     )
+    @JsonBackReference
     private User user;
-    @OneToMany(
-            mappedBy = "company",
-            orphanRemoval = true,
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            fetch = FetchType.LAZY
-    )
-    private List<Job> jobs = new ArrayList<>();
-    @OneToMany(
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            mappedBy = "company"
-    )
-    private List<Review> reviews = new ArrayList<>();
-
-    @OneToMany(
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
-            mappedBy = "company"
-    )
-    private List<Message> messages = new ArrayList<>();
     public Company(String name,
                    String language,
                    String country,

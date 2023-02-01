@@ -1,7 +1,7 @@
 package com.web.springbootproject.entity.company;
 
 import com.web.springbootproject.entity.company.embadded.ReviewId;
-import com.web.springbootproject.entity.employee.Profile;
+import com.web.springbootproject.entity.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,13 +32,12 @@ public class Review {
     )
     private Company company;
     @ManyToOne
-    @MapsId("profileId")
+    @MapsId("userId")
     @JoinColumn(
-            name = "profile_id",
+            name = "user_id",
             foreignKey = @ForeignKey(
-                    name = "review_profile_id_fk"
+                    name = "review_user_id_fk"
             )
     )
-    private Profile profile;
-
+    private User user;
 }
