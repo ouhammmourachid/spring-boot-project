@@ -1,9 +1,11 @@
 package com.web.springbootproject.service.company;
 
 import com.web.springbootproject.entity.company.Company;
+import com.web.springbootproject.entity.user.User;
 import com.web.springbootproject.exception.RequestValidationException;
 import com.web.springbootproject.exception.ResourceNotFoundException;
 import com.web.springbootproject.repository.company.CompanyRepository;
+import com.web.springbootproject.repository.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,8 @@ import java.util.Optional;
 public class CompanyService {
     @Autowired
     private final CompanyRepository companyRepository;
+    @Autowired
+    private  final UserRepository userRepository;
 
     public List<Company> getAllCompanies() {
         return companyRepository.findAll();
@@ -25,8 +29,13 @@ public class CompanyService {
         return companyRepository.findById(id);
     }
 
-    public Company addCompany(Company company) {
-        return companyRepository.save(company);
+    public Company addCompany(Long userId,Company company) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(()-> new ResourceNotFoundException("user with id [%s] not found .".formatted(userId)));
+        user.setCompany(company);
+        company.setUser(user);
+        userRepository.save(user);
+        return user.getCompany();
     }
 
     public Company updateCompany(Long companyId, Company updateRequest) {

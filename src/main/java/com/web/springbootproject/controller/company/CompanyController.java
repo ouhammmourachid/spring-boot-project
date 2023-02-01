@@ -24,8 +24,9 @@ public class CompanyController {
         return companyService.getCompany(id);
     }
     @PostMapping
-    public Company addCompany(@RequestBody Company company){
-        return companyService.addCompany(company);
+    public Company addCompany(@RequestParam Long userId,
+                              @RequestBody Company company){
+        return companyService.addCompany(userId,company);
     }
     @PutMapping
     public Company updateCompany(@RequestParam Long companyId,

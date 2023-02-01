@@ -1,6 +1,7 @@
 package com.web.springbootproject.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.web.springbootproject.entity.company.Company;
 import com.web.springbootproject.entity.employee.Profile;
 import com.web.springbootproject.entity.util.Document;
 import com.web.springbootproject.entity.util.Image;
@@ -34,6 +35,13 @@ public class User {
     )
     @JsonManagedReference
     private Profile profile;
+    @OneToOne(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
+    )
+    @JsonManagedReference
+    private Company company;
     @OneToOne(
             mappedBy = "user",
             orphanRemoval = true,

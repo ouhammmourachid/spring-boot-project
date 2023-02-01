@@ -2,6 +2,7 @@ package com.web.springbootproject.entity.company;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.web.springbootproject.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +40,16 @@ public class Company {
     @JoinColumn(name = "company_job_fk",referencedColumnName = "id")
     @JsonManagedReference
     private List<Job> jobs;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "user_profile_id_fk"
+            )
+    )
+    @JsonBackReference
+    private User user;
     public Company(String name,
                    String language,
                    String country,
