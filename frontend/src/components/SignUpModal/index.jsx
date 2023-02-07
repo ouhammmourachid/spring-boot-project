@@ -1,7 +1,5 @@
 import React, { useEffect,useRef} from 'react';
-import {Email} from '../icones/Email';
-import {Key} from '../icones/Key';
-import {Option} from '../icones/Option';
+
 
 export default function SignUpModal({visible,setShowModel}){
     let signUp = useRef();
@@ -19,30 +17,23 @@ export default function SignUpModal({visible,setShowModel}){
     })
     if(!visible) return null;
     return(
-    <div className='fixed inset-0 backdrop-blur-sm flex justify-center items-center'>
-        <div className='bg-slate-300 dark:bg-primary w-96 h-96 rounded-xl p-5'
-                ref={signUp}>
-            <h2 className='text-lg text-bold border-b-2 m-6'>
-                Job Search & Posting Portal: Sign Up
-            </h2>
-            <form>
-                <div className='flex m-6'>
-                    <label className='mx-3 mt-1'>
-                        <Email />
-                    </label>
-                    <input type="text" placeholder='Email ' className='rounded-md w-60 p-1 outline-none'/>
+        <div className='fixed inset-0 backdrop-blur-sm flex justify-center items-center'>     
+        <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-xl shadow sm:p-6 md:p-8 dark:bg-colordark dark:border-gray-700">
+            <form className="space-y-6" ref={signUp}>
+                <h5 className="text-xl font-medium text-gray-900 dark:text-black">Sign up to shiny</h5>
+                <div>
+                    <label for="email" className="block mb-2 text-sm font-medium text-secondary">Your email</label>
+                    <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " placeholder="name@company.com" required/>
                 </div>
-                <div className='flex m-6'>
-                    <label className='mx-3 mt-1'>
-                        <Key/>
-                    </label>
-                    <input type="password" placeholder='password' className='rounded-md w-55 p-1 outline-none'/>
+                <div>
+                    <label for="password" className="block mb-2 text-sm font-medium text-secondary">Your password</label>
+                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400" required/>
                 </div>
-                <div className='flex m-6'>
-                    <label className='mx-3 mt-1'>
-                        <Option />
+                <div >
+                    <label className='block mb-2 text-sm font-medium text-secondary'>
+                        Type Account
                     </label>
-                    <select className='rounded-md p-1 outline-none'>
+                    <select className='rounded-md p-1 outline-none bg-slate-200'>
                         <option value="" disabled>
                             Select an option
                         </option>
@@ -50,7 +41,7 @@ export default function SignUpModal({visible,setShowModel}){
                         <option value="company">company</option>
                     </select>
                 </div>
-                <button className='flex m-12 bg-primary dark:bg-white rounded-3xl hover:shadow-md p-1 ml-32 px-4 py-2'> Sign up</button>
+                <button type="submit" className="w-full text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create an account</button>
             </form>
         </div>
     </div>

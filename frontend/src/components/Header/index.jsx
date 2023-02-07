@@ -15,8 +15,8 @@ function Header({darkMode,setDarkMode,setShowSignIn,setShowSignUp}){
             </div>
             <div className="flex items-center text-gray">
                 <div className="flex items-center">
-                    <Link to="/" className="mr-4 font-semibold hover:underline">find jobs</Link>
-                    <Link to="/" className="mr-4 font-semibold hover:underline">Company reviews</Link>
+                    <Link to="/find-jobs" className="mr-4 font-semibold hover:underline">find jobs</Link>
+                    <Link to="/company-review" className="mr-4 font-semibold hover:underline">Company reviews</Link>
                 </div>
                 <div className="flex items-center select-none">
                     <div className='mr-4 ml-6'onClick={()=>setDarkMode(!darkMode)}>

@@ -8,6 +8,9 @@ import './index.css';
 import { useEffect } from "react";
 import SignInModal from './components/SignInModal';
 import Error from "./components/Error";
+import FindJobs from "./pages/FindJobs";
+import CompanyReview from "./pages/CompanyReview";
+import Profile from "./pages/Profile";
 
 function App(){
     const savedDarkMode = localStorage.getItem('darkMode')
@@ -31,7 +34,9 @@ function App(){
                     setShowSignUp={setShowSignUp}/>
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    
+                    <Route path='find-jobs' element={<FindJobs />} />
+                    <Route path='company-review' element={<CompanyReview />} />
+                    <Route path='profile' element= {<Profile />} />
                     <Route path="*" element={<Error />} />
                 </Routes>
                 <SignUpModal visible={showSignUp} setShowModel={setShowSignUp}/>
