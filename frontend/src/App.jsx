@@ -11,6 +11,8 @@ import Error from "./components/Error";
 import FindJobs from "./pages/FindJobs";
 import CompanyReview from "./pages/CompanyReview";
 import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
+import Company from "./pages/Company";
 
 function App(){
     const savedDarkMode = localStorage.getItem('darkMode')
@@ -37,6 +39,8 @@ function App(){
                     <Route path='find-jobs' element={<FindJobs />} />
                     <Route path='company-review' element={<CompanyReview />} />
                     <Route path='profile' element= {<Profile />} />
+                    <Route path='profile/edit' element={<EditProfile />} />
+                    <Route path='company' element={<Company />} />
                     <Route path="*" element={<Error />} />
                 </Routes>
                 <SignUpModal visible={showSignUp} setShowModel={setShowSignUp}/>
