@@ -16,6 +16,7 @@ import Company from "./pages/Company";
 import Job from './pages/Job';
 import EditJob from './pages/EditJob';
 import Footer from './components/Footer';
+import EditCompany from "./pages/EditCompany";
 
 function App(){
     const savedDarkMode = localStorage.getItem('darkMode')
@@ -44,6 +45,7 @@ function App(){
                     <Route path='profile' element= {<Profile />} />
                     <Route path='profile/edit' element={<EditProfile />} />
                     <Route path='company' element={<Company />} />
+                    <Route path='company/edit' element={<EditCompany />} />
                     <Route path='job' element={<Job />} />
                     <Route path='job/edit' element={<EditJob />} />
                     <Route path="*" element={<Error />} />

@@ -37,7 +37,7 @@ export default function EditCompany(){
                 <textarea className="form-control py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 w-96" id="description" rows="3" placeholder='Write a description of the company here .' style={{"background-color": "#e9ecef"}}></textarea>
               </div>
               
-              <div className="m-3 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md w-96">
+              <div className="m-3 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md w-80">
                 <div className="space-y-1 text-center">
                   <Image />
                   <div className="flex text-sm text-gray-600">
@@ -53,7 +53,7 @@ export default function EditCompany(){
                 </div>
               </div>
 
-              <div className="m-3 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md w-96">
+              <div className="m-3 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md w-80">
                 <div className="space-y-1 text-center">
                     <Pdf />
                   <div className="flex text-sm text-gray-600">
