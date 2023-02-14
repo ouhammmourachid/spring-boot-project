@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import profile from '../../assets/profile.png'
-import PDF from '../../components/PDF';
+import { useState } from 'react';
+import profile from '../../assets/profile.png';
 import cv from '../../assets/cv.pdf';
 
 export default function Profile(){
@@ -36,7 +35,7 @@ export default function Profile(){
                 considerable range.
                 </p>
                 {showMore &&
-                <PDF src={cv} />
+                <div> hello</div>
                 }
                 <button
                     className="text-indigo-500 py-2 px-4  font-medium mt-4"

@@ -7,7 +7,7 @@ import { Moon } from '../icones/Moon';
 
 function Header({darkMode,setDarkMode,setShowSignIn,setShowSignUp}){
     return(
-        <nav class="flex items-center justify-between p-4 ">
+        <nav className="flex items-center justify-between p-4 ">
             <div class="flex items-center">
                 <Link to='/'>
                     <img src={ !darkMode ? DarkLogo :LightLogo } alt="logo shiny" className='w-32'/>

@@ -1,6 +1,7 @@
 import CardJob from '../../components/CardJob';
 import Location from '../../components/icones/Location';
 import Arrow from '../../components/Arrow';
+
 function FindJobs(){
     return (
     <div className="fixed  flex flex-col w-full h-full items-center dark:bg-colordark">

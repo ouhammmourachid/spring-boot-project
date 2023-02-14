@@ -18,16 +18,16 @@ export default function SignUpModal({visible,setShowModel}){
     if(!visible) return null;
     return(
         <div className='fixed inset-0 backdrop-blur-sm flex justify-center items-center'>     
-        <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-xl shadow sm:p-6 md:p-8 dark:bg-colordark dark:border-gray-700">
+        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-xl shadow sm:p-6 md:p-8 dark:bg-colordark dark:border-gray-700">
             <form className="space-y-6" ref={signUp}>
                 <h5 className="text-xl font-medium text-gray-900 dark:text-black">Sign up to shiny</h5>
                 <div>
-                    <label for="email" className="block mb-2 text-sm font-medium text-secondary">Your email</label>
-                    <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " placeholder="name@company.com" required/>
+                    <label  className="block mb-2 text-sm font-medium text-secondary">Your email</label>
+                    <input type="email" name="email"  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " placeholder="name@company.com" required/>
                 </div>
                 <div>
-                    <label for="password" className="block mb-2 text-sm font-medium text-secondary">Your password</label>
-                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400" required/>
+                    <label  className="block mb-2 text-sm font-medium text-secondary">Your password</label>
+                    <input type="password" name="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400" required/>
                 </div>
                 <div >
                     <label className='block mb-2 text-sm font-medium text-secondary'>
