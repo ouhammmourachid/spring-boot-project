@@ -1,7 +1,6 @@
 package com.web.springbootproject.service.user;
 
 import com.web.springbootproject.entity.user.User;
-import com.web.springbootproject.repository.employee.ProfileRepository;
 import com.web.springbootproject.repository.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,7 @@ import java.util.List;
 public class UserService {
     @Autowired
     private final UserRepository userRepository;
-    public List<User> getAllUsers() {
+    public List<User> getAllUser(){
         return userRepository.findAll();
-    }
-
-    public User addUser(User user) {
-        userRepository.save(user);
-        return user;
     }
 }
