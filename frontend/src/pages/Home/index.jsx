@@ -3,7 +3,7 @@ import HomeIllustration from '../../assets/home-illustration.svg'
 
 function Home(){
     return(
-        <div className='flex flex-row justify-center py-32  space-x-6 w-full h-full'>
+        <div className='flex flex-row justify-center pt-6  space-x-6 min-w-screen min-h-screen'>
             <div className='flex flex-col justify-center'>
                 <h2 className='pb-3 max-w-sm font-bold text-lg selection:bg-pink-400'>
                 Welcome to our job search and job posting platform! Whether you're an job 

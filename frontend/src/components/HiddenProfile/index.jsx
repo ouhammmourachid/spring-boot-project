@@ -11,17 +11,17 @@ export default function HiddenProfile(){
 
     return(
         <div className="flex  flex-col items-center">
-            <div className="border-t-4 border-secondary my-6 w-1/2 ">
-                <h1 className="text-lg font-bold mt-3 ml-12">Education</h1>
-                <div className='flex flex-wrap p-3 ml-16 border-b-2 border-secondary'>
+            <div className="border-t-2 border-secondary my-6 w-1/2 ">
+                <h1 className="text-md font-bold mt-3 ml-12">Education</h1>
+                <div className='flex flex-wrap p-3 ml-8 border-b-2 border-secondary'>
                     <h2 className='text-md font-bold mr-3'>Ensam casa</h2>
                     <h3 className='text-sm text-secondary pt-2'>AI&GI</h3>
                 </div>
-                <div className='flex flex-wrap p-3 ml-16 border-b-2 border-secondary'>
+                <div className='flex flex-wrap p-3 ml-8 border-b-2 border-secondary'>
                     <h2 className='text-md font-bold mr-3'>Ensam casa</h2>
                     <h3 className='text-sm text-secondary pt-2'>AI&GI</h3>
                 </div>
-                <div className='flex flex-wrap p-3 ml-16 border-b-2 border-secondary'>
+                <div className='flex flex-wrap p-3 ml-8 border-b-2 border-secondary'>
                     <h2 className='text-md font-bold mr-3'>Ensam casa</h2>
                     <h3 className='text-sm text-secondary pt-2'>AI&GI</h3>
                 </div>
@@ -44,14 +44,14 @@ export default function HiddenProfile(){
                 </div>
                 </div>
                 }
-                <div className='flex flex-col items-center justify-center'>
+                <div className='flex flex-col items-center justify-center my-3'>
                     <button onClick={()=>setShowEducation(!showEducation)} >
                         {showEducation? <Xclose /> :<Plus/>}
                     </button>
                 </div>
             </div>
-            <div className="border-t-4 border-secondary my-12 w-1/2">
-                <h1 className="text-lg font-bold mt-3 ml-12">Skills</h1>
+            <div className="border-t-2 border-secondary my-12 w-1/2">
+                <h1 className="text-md font-bold mt-3 ml-12">Skills</h1>
                 { showSkills &&
                 <div className='mt-3'>
                 <div className='flex'>
@@ -71,14 +71,14 @@ export default function HiddenProfile(){
                 </div>
                 </div>
                 }
-                <div className='flex flex-col items-center justify-center'>
+                <div className='flex flex-col items-center justify-center  my-3'>
                     <button onClick={()=>setShowSkills(!showSkills)} >
                         {showSkills? <Xclose /> :<Plus/>}
                     </button>
                 </div>
             </div>
-            <div className="border-t-4 border-secondary my-12 w-1/2">
-                <h1 className="text-lg font-bold mt-3 ml-12">Certificate</h1>
+            <div className="border-t-2 border-secondary my-12 w-1/2">
+                <h1 className="text-md font-bold mt-3 ml-12">Certificate</h1>
                 { showCertificate &&
                 <div className='mt-3'>
                 <div className='flex flex-wrap'>
@@ -104,14 +104,14 @@ export default function HiddenProfile(){
                 </div>
                 </div>
                 }
-                <div className='flex flex-col items-center justify-center'>
+                <div className='flex flex-col items-center justify-center  my-3'>
                     <button onClick={()=>setShowCertificate(!showCertificate)} >
                         {showCertificate? <Xclose />:<Plus />}
                     </button>
                 </div>
             </div>
-            <div className="border-t-4 border-secondary my-12 w-1/2">
-                <h1 className="text-lg font-bold mt-3 ml-12">Language</h1>
+            <div className="border-t-2 border-secondary my-12 w-1/2">
+                <h1 className="text-md font-bold mt-3 ml-12">Language</h1>
                 { showLanguage &&
                 <div className='mt-3'>
                 <div className='flex'>
@@ -132,14 +132,14 @@ export default function HiddenProfile(){
                 </div>
                 </div>
                 }
-                <div className='flex flex-col items-center justify-center'>
+                <div className='flex flex-col items-center justify-center  my-3'>
                     <button onClick={()=>setShowLanguage(!showLanguage)} >
                         {showLanguage? <Xclose />:<Plus/>}
                     </button>
                 </div>
             </div>
-            <div className="border-t-4 border-secondary my-12 w-1/2">
-                <h1 className="text-lg font-bold mt-3 ml-12">License</h1>
+            <div className="border-t-2 border-secondary my-12 w-1/2">
+                <h1 className="text-md font-bold mt-3 ml-12">License</h1>
                 { showLicense &&
                 <div className='mt-3'>
                 <div className='flex flex-wrap'>
@@ -165,7 +165,7 @@ export default function HiddenProfile(){
                 </div>
                 </div>
                 }
-                <div className='flex flex-col items-center justify-center'>
+                <div className='flex flex-col items-center justify-center  my-3'>
                     <button onClick={()=>setShowLicense(!showLicense)}>
                         {showLicense ? <Xclose />:<Plus/>}
                     </button>

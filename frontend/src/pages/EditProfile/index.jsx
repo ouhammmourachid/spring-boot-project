@@ -2,10 +2,11 @@
 
 export default function EditProfile(){
     return (
-    <div className="mx-96 mt-5 dark:bg-white">
+    <div className="mx-96 pt-20 dark:bg-white rounded-xl min-h-screen">
         <div className="h-full w-full">
+        <h1 className="flex flex-col items-center text-secondary font-bold">Edit Job Info:</h1>
             <div className="mt-5 md:mt-0 md:col-span-2">
-                <form action="" method="POST">
+                <form >
         <div className="shadow overflow-hidden">
           <div className="px-4 py-5 bg-white sm:p-6">
             <div className="flex flex-wrap p-3">

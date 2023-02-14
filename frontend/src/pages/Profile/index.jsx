@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import profile from '../../assets/profile.png';
 import cv from '../../assets/cv.pdf';
+import HiddenProfile from '../../components/HiddenProfile';
 
 export default function Profile(){
     const [showMore,setShowMore] = useState(false);
     return(
-    <div class="mx-44 pb-12">
+    <div className="flex  flex-wrap justify-center pb-3 pt-12 min-h-screen mx-72">
         <div className="p-8 bg-zinc-100 dark:bg-primary shadow mt-24 rounded-xl ">
             <div className="grid grid-cols-1 md:grid-cols-3">
                 <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
                 </div>
                 <div className="relative">
-                    <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+                    <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
                         <img src={profile} alt="profile" className='h-full w-full'  />
                     </div>
                 </div>
@@ -35,10 +36,10 @@ export default function Profile(){
                 considerable range.
                 </p>
                 {showMore &&
-                <div> hello</div>
+                    <HiddenProfile />
                 }
                 <button
-                    className="text-indigo-500 py-2 px-4  font-medium mt-4"
+                    className="py-2 px-4  font-medium mt-4 text-secondary"
                     onClick={()=>setShowMore(!showMore)}
                 >
                    {!showMore ? "Show more":"Show less"}
