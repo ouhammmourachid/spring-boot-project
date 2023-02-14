@@ -7,7 +7,7 @@ export default function Profile(){
     const [showMore,setShowMore] = useState(false);
     return(
     <div className="flex  flex-wrap justify-center pb-3 pt-12 min-h-screen mx-72">
-        <div className="p-8 bg-zinc-100 dark:bg-primary shadow mt-24 rounded-xl ">
+        <div className="p-8 bg-zinc-100 dark:bg-purple-400 shadow mt-24 rounded-xl ">
             <div className="grid grid-cols-1 md:grid-cols-3">
                 <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
                 </div>

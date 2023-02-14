@@ -3,7 +3,7 @@ import Pdf from "../../components/icones/Pdf";
 
 export default function EditJob(){
     return(
-        <form className="flex flex-row min-h-screen justify-center items-center px-96 pt-12 ">
+        <form className="flex flex-row min-h-screen justify-center items-center px-96 pt-12">
         <div className="px-4 py-5 bg-white rounded-xl">
         <h1 className="flex flex-col items-center text-secondary font-bold">Edit Job Info:</h1>
           <div className="flex flex-wrap p-3">
